@@ -14,11 +14,15 @@ package frc.robot;
  */
 public final class Constants {
     public final static int leftMaster = 1;
-	public final static int rightMaster = 2;
-	public final static int rightSlave1 = 3;
-	public final static int rightSlave2 = 4;
-	public final static int leftSlave1 = 5;
-	public final static int leftSlave2 = 6;
+	public final static int leftSlave1 = 2;
+	public final static int leftSlave2 = 3;
+	public final static int rightMaster = 4;
+	public final static int rightSlave1 = 5;
+	public final static int rightSlave2 = 6;
+	public static final int LeftElevatorMaster = 7;
+    public static final int RightElevatorMaster = 9;
+    public static final int LeftElevatorSlave = 8;
+    public static final int RightElevatorSlave = 10;
 
 
     private Constants(){}

@@ -39,11 +39,9 @@ public class Drivetrain extends SubsystemBase {
     // leftMaster.setInverted(false);
     // leftSlave1.setInverted(InvertType.FollowMaster);
     // leftSlave2.setInverted(InvertType.FollowMaster);
-    // rightMaster.setInverted(true);
-    // rightSlave1.setInverted(InvertType.FollowMaster);
-    // rightSlave2.setInverted(InvertType.FollowMaster);
-
-    //drive.setRightSideInverted(false);
+    rightMaster.setInverted(InvertType.InvertMotorOutput);
+    rightSlave1.setInverted(InvertType.FollowMaster);
+    rightSlave2.setInverted(InvertType.FollowMaster);
 
   }
   
