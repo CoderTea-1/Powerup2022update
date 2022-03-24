@@ -35,7 +35,7 @@ public class RobotContainer {
     // Configure the button bindings
     configureButtonBindings();
     drivetrain.setDefaultCommand(new ArcadeDrive(drivetrain, this::MainleftStickY, this::MainrightStickX));
-    drivetrain.setDefaultCommand(new elevatorDrive(elevator, this::ColeftStickY));
+    elevator.setDefaultCommand(new elevatorDrive(elevator, this::ColeftStickY));
     
     //drivetrain.setDefaultCommand(new ElevatorDrive(drivetrain, this::ColeftStickY));
   }
