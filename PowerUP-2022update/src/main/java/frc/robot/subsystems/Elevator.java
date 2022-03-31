@@ -7,16 +7,18 @@ package frc.robot.subsystems;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.InvertType;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
 public class Elevator extends SubsystemBase {
   private final TalonSRX LeftElevatorMaster = new WPI_TalonSRX(Constants.LeftElevatorMaster);
-  private final TalonSRX LeftElevatorSlave = new WPI_TalonSRX(Constants.LeftElevatorSlave); 
+  private final VictorSPX LeftElevatorSlave = new WPI_VictorSPX(Constants.LeftElevatorSlave); 
   private final TalonSRX RightElevatorMaster = new WPI_TalonSRX(Constants.RightElevatorMaster); 
-  private final TalonSRX RightElevatorSlave = new WPI_TalonSRX(Constants.RightElevatorSlave);  
+  private final VictorSPX RightElevatorSlave = new WPI_VictorSPX(Constants.RightElevatorSlave);  
   /** Creates a new Elevator. */
   public Elevator() {
     LeftElevatorSlave.follow(LeftElevatorMaster);

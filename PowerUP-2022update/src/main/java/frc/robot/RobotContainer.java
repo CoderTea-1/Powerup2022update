@@ -67,6 +67,7 @@ public class RobotContainer {
   private double MainrightStickX() {
     return mainController.getRightX();
   }
+
   private double ColeftStickY() {
     return -coController.getLeftY();
   }
