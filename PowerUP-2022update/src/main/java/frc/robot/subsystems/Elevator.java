@@ -16,22 +16,32 @@ import frc.robot.Constants;
 
 public class Elevator extends SubsystemBase {
   private final TalonSRX LeftElevatorMaster = new WPI_TalonSRX(Constants.LeftElevatorMaster);
-  private final VictorSPX LeftElevatorSlave = new WPI_VictorSPX(Constants.LeftElevatorSlave); 
-  private final TalonSRX RightElevatorMaster = new WPI_TalonSRX(Constants.RightElevatorMaster); 
-  private final VictorSPX RightElevatorSlave = new WPI_VictorSPX(Constants.RightElevatorSlave);  
+  private final VictorSPX LeftElevatorSlave = new VictorSPX(Constants.LeftElevatorSlave);
+  private final TalonSRX RightElevatorMaster = new WPI_TalonSRX(Constants.RightElevatorMaster);;
+  private final VictorSPX RightElevatorSlave = new VictorSPX(Constants.RightElevatorMaster);;
+
+  // private final VictorSPX LeftElevatorSlave = new
+  // WPI_VictorSPX(Constants.LeftElevatorSlave);
+  // private final TalonSRX RightElevatorMaster = new
+  // WPI_TalonSRX(Constants.RightElevatorMaster);
+  // private final VictorSPX RightElevatorSlave = new
+  // WPI_VictorSPX(Constants.RightElevatorSlave);
   /** Creates a new Elevator. */
   public Elevator() {
+    LeftElevatorMaster.setInverted(false);
+    LeftElevatorSlave.setInverted(false);
     LeftElevatorSlave.follow(LeftElevatorMaster);
-
-    RightElevatorSlave.follow(RightElevatorMaster);
     RightElevatorMaster.setInverted(InvertType.InvertMotorOutput);
-    RightElevatorSlave.setInverted(InvertType.FollowMaster);
+    RightElevatorSlave.follow(RightElevatorMaster);
+
+    // RightElevatorSlave.setInverted(InvertType.FollowMaster);
   }
+
   public void elevatorDrive(double speed) {
     LeftElevatorMaster.set(ControlMode.PercentOutput, speed);
-    RightElevatorMaster.set(ControlMode.PercentOutput,speed);
-
+    RightElevatorMaster.set(ControlMode.PercentOutput, speed);
   }
+
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
