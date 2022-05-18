@@ -12,9 +12,11 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import frc.robot.commands.ArcadeDrive;
+import frc.robot.commands.IntakeRunner;
 import frc.robot.commands.elevatorDrive;
 import frc.robot.subsystems.Drivetrain;
 import frc.robot.subsystems.Elevator;
+import frc.robot.subsystems.Intake;
 
 /**
  * This class is where the bulk of the robot should be declared. Since
@@ -29,6 +31,7 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final Drivetrain drivetrain = new Drivetrain();
   private final Elevator elevator = new Elevator();
+  private final Intake intake = new Intake();
   private final XboxController mainController = new XboxController(0);
   private final XboxController coController = new XboxController(1);
 
@@ -40,6 +43,7 @@ public class RobotContainer {
     configureButtonBindings();
     drivetrain.setDefaultCommand(new ArcadeDrive(drivetrain, this::MainleftStickY, this::MainrightStickX));
     elevator.setDefaultCommand(new elevatorDrive(elevator, this::ColeftStickY));
+    intake.setDefaultCommand(new IntakeRunner(intake, this::CoRightTrigger));
 
     // drivetrain.setDefaultCommand(new ElevatorDrive(drivetrain,
     // this::ColeftStickY));
@@ -77,5 +81,9 @@ public class RobotContainer {
 
   private double ColeftStickY() {
     return -(coController.getLeftY() - 0.25);
+  }
+
+  private double CoRightTrigger() {
+    return (coController.getRightTriggerAxis());
   }
 }

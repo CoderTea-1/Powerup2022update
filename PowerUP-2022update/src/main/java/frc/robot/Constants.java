@@ -27,6 +27,8 @@ public final class Constants {
 	public static final int RightElevatorMaster = 7;
 	public static final int LeftElevatorSlave = 8;
 	public static final int RightElevatorSlave = 10;
+	public static final int LeftIntake = 11;
+	public static final int RightIntake = 12;
 	public static double speed = 0;
 
 	private Constants() {
